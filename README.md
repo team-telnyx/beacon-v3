@@ -81,24 +81,6 @@ risk = (overdue_days × 3, cap 30) + (overdue_tasks × 5) + (blocked × 4)
 | 21–50 | 🟡 Yellow | Needs attention |
 | 51+ | 🔴 Red | At risk |
 
-## Onboarding a New Team
-
-See [docs/onboarding.md](docs/onboarding.md) for the full rollout guide.
-
-**TL;DR:**
-
-1. **Week 1 — Pilot:** Add Beacon to 2–3 active project channels. Let it observe for 48 hours before tuning.
-2. **Week 2 — Expand:** Roll out to more channels based on pilot feedback.
-3. **Ongoing:** Beacon learns from channel history and improves context over time.
-
-### What makes a good Beacon channel?
-
-- ✅ Active project with clear deliverables
-- ✅ 10+ messages/day (enough signal)
-- ✅ Has an identifiable DRI/owner
-- ❌ Not social/random channels
-- ❌ Not channels with <5 messages/week
-
 ## Examples
 
 ### Task tracking from conversation
