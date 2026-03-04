@@ -158,7 +158,7 @@ v2 was a monolithic Slack Bolt app with regex-based intent classification. v3 is
 
 ## Support
 
-Questions or issues? Drop them in **#help-ai-platform** on Slack.
+Questions or issues? DM Ian on Slack.
 
 ## License
 
