@@ -148,7 +148,7 @@ No. Beacon is anti-noise by design:
 - Mute options available
 
 **What model does Beacon use?**  
-Claude Sonnet 4 via OpenClaw for speed. Most interactions (task CRUD, status queries) are simple and benefit from fast response times.
+Claude Opus via OpenClaw.
 
 **Can Beacon work across multiple channels?**  
 Yes. You can ask cross-channel questions like "what's due this week across all projects?" and Beacon will aggregate.
