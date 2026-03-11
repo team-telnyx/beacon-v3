@@ -1,0 +1,477 @@
+{
+  "project": "Beacon v3 Test Framework",
+  "source": "SPEC-test-framework.md",
+  "generated_at": "2026-03-04T11:16:28.736549+00:00",
+  "effort_level": "epic",
+  "criteria_count": 52,
+  "criteria": [
+    {
+      "id": "ISC-001",
+      "category": "test-structure",
+      "statement": "Tests directory exists at ~/beacon-v3/tests/",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -d $TARGET/tests",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-002",
+      "category": "test-structure",
+      "statement": "conftest.py file exists in tests directory",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/tests/conftest.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-003",
+      "category": "test-structure",
+      "statement": "pytest framework is configured for test execution",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'pytest' $TARGET/requirements.txt || grep -q 'import pytest' $TARGET/tests/*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-004",
+      "category": "test-markers",
+      "statement": "Storage test functions have @storage pytest marker",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '@pytest.mark.storage' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-005",
+      "category": "test-markers",
+      "statement": "Risk test functions have @risk pytest marker",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '@pytest.mark.risk' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-006",
+      "category": "test-markers",
+      "statement": "JIRA test functions have @jira pytest marker",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '@pytest.mark.jira' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-007",
+      "category": "test-markers",
+      "statement": "Search test functions have @search pytest marker",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '@pytest.mark.search' $TARGET/tests/*search*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-008",
+      "category": "test-markers",
+      "statement": "Lifecycle test functions have @lifecycle pytest marker",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '@pytest.mark.lifecycle' $TARGET/tests/*lifecycle*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-009",
+      "category": "storage-tests",
+      "statement": "create_task test function exists with basic fields",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*create_task' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-010",
+      "category": "storage-tests",
+      "statement": "create_task test with optional fields function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'assignee\\|due\\|actor' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-011",
+      "category": "storage-tests",
+      "statement": "list_tasks test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*list_tasks' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-012",
+      "category": "storage-tests",
+      "statement": "update_task test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*update_task' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-013",
+      "category": "storage-tests",
+      "statement": "block_task test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*block_task' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-014",
+      "category": "storage-tests",
+      "statement": "unblock_task test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*unblock_task' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-015",
+      "category": "storage-tests",
+      "statement": "complete_task test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*complete_task' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-016",
+      "category": "storage-tests",
+      "statement": "dismiss_task test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*dismiss_task' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-017",
+      "category": "storage-tests",
+      "statement": "bulk_assign test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*bulk_assign' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-018",
+      "category": "storage-tests",
+      "statement": "bulk_due test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*bulk_due' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-019",
+      "category": "storage-tests",
+      "statement": "idempotency test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*idempotency' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-020",
+      "category": "storage-tests",
+      "statement": "write_event test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*write_event' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-021",
+      "category": "storage-tests",
+      "statement": "get_context and set_context test functions exist",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*context' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-022",
+      "category": "storage-tests",
+      "statement": "next_task_number test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*next_task_number' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-023",
+      "category": "storage-tests",
+      "statement": "registry CRUD test functions exist",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*registry' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-024",
+      "category": "storage-tests",
+      "statement": "event ordering test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*ordering\\|def test.*chronological' $TARGET/tests/*storage*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-025",
+      "category": "risk-tests",
+      "statement": "risk calculate test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*calculate' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-026",
+      "category": "risk-tests",
+      "statement": "empty channel risk test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*empty' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-027",
+      "category": "risk-tests",
+      "statement": "overdue tasks risk test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*overdue' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-028",
+      "category": "risk-tests",
+      "statement": "blocked tasks risk test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*blocked' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-029",
+      "category": "risk-tests",
+      "statement": "unassigned tasks risk test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*unassigned' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-030",
+      "category": "risk-tests",
+      "statement": "risk level thresholds test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*threshold\\|green\\|yellow\\|red' $TARGET/tests/*risk*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-031",
+      "category": "jira-tests",
+      "statement": "JIRA query test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*query' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-032",
+      "category": "jira-tests",
+      "statement": "JIRA create test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*create' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-033",
+      "category": "jira-tests",
+      "statement": "JIRA status test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*status' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-034",
+      "category": "jira-tests",
+      "statement": "JIRA update test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*update' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-035",
+      "category": "jira-tests",
+      "statement": "JIRA link test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*link' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-036",
+      "category": "jira-tests",
+      "statement": "resolve_user test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*resolve_user' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-037",
+      "category": "jira-tests",
+      "statement": "map_user test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*map_user' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-038",
+      "category": "jira-tests",
+      "statement": "process_retries test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*retries' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-039",
+      "category": "search-tests",
+      "statement": "search query test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*query' $TARGET/tests/*search*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-040",
+      "category": "search-tests",
+      "statement": "search channel filter test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*channel' $TARGET/tests/*search*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-041",
+      "category": "search-tests",
+      "statement": "search ingest test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*ingest' $TARGET/tests/*search*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-042",
+      "category": "lifecycle-tests",
+      "statement": "full lifecycle test function exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*lifecycle' $TARGET/tests/*lifecycle*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-043",
+      "category": "lifecycle-tests",
+      "statement": "task JIRA link lifecycle test exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*jira.*link' $TARGET/tests/*lifecycle*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-044",
+      "category": "lifecycle-tests",
+      "statement": "risk calculation lifecycle test exists",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def test.*risk.*calculate' $TARGET/tests/*lifecycle*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-045",
+      "category": "configuration",
+      "statement": "Test channel configuration is environment variable based",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'C_TEST_BEACON\\|TEST_CHANNEL' $TARGET/tests/*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-046",
+      "category": "configuration",
+      "statement": "Environment variables are defined for external services",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'TELNYX_API_KEY\\|JIRA_EMAIL\\|JIRA_TOKEN' $TARGET/tests/*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-047",
+      "category": "cleanup",
+      "statement": "Cleanup fixture dismisses test tasks after execution",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'dismiss.*test\\|cleanup.*task' $TARGET/tests/conftest.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-048",
+      "category": "cleanup",
+      "statement": "Cleanup fixture deletes test JIRA issues",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'delete.*jira\\|cleanup.*jira' $TARGET/tests/conftest.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-049",
+      "category": "test-execution",
+      "statement": "Tests execute scripts via subprocess calls",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'subprocess\\|Popen\\|run(' $TARGET/tests/*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-050",
+      "category": "test-execution",
+      "statement": "Tests parse JSON output from script stdout",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'json.loads\\|json.load' $TARGET/tests/*.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-051",
+      "category": "test-execution",
+      "statement": "Tests handle stderr deprecation warnings separately",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'stderr\\|deprecation' $TARGET/tests/*.py",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-052",
+      "category": "jira-tests",
+      "statement": "Test JIRA issues use LEGAL project prefix",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'LEGAL\\|\\[TEST\\]' $TARGET/tests/*jira*.py",
+      "priority": "must-have"
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "project": "Beacon v3 Internal Project Management Agent",
+  "source": "DESIGN.md",
+  "generated_at": "2026-03-04T04:14:44.307119+00:00",
+  "effort_level": "epic",
+  "criteria_count": 56,
+  "criteria": [
+    {
+      "id": "ISC-001",
+      "category": "agent-configuration",
+      "statement": "Beacon agent exists in openclaw.json agents list",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"id\": \"beacon\"' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-002",
+      "category": "agent-configuration",
+      "statement": "Beacon agent uses claude-opus-4-6 as primary model",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"primary\": \"anthropic/claude-opus-4-6\"' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-003",
+      "category": "agent-configuration",
+      "statement": "Beacon agent binding exists for beacon account",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"agentId\": \"beacon\"' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-004",
+      "category": "agent-configuration",
+      "statement": "Beacon slack account has bot and app tokens",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"beacon\": {' $TARGET && grep -A 10 '\"beacon\": {' $TARGET | grep -q 'botToken'",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-005",
+      "category": "workspace-structure",
+      "statement": "Beacon workspace has SOUL.md file",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/SOUL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-006",
+      "category": "workspace-structure",
+      "statement": "Beacon workspace has AGENTS.md file",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/AGENTS.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-007",
+      "category": "workspace-structure",
+      "statement": "Beacon workspace has TOOLS.md file",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/TOOLS.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-008",
+      "category": "workspace-structure",
+      "statement": "Beacon workspace has MEMORY.md file",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/MEMORY.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-009",
+      "category": "workspace-structure",
+      "statement": "Beacon workspace has project-registry.json in data directory",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/data/project-registry.json",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-010",
+      "category": "skills-structure",
+      "statement": "Tasks skill directory exists with SKILL.md",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/skills/tasks/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-011",
+      "category": "skills-structure",
+      "statement": "Risk skill directory exists with SKILL.md",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/skills/risk/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-012",
+      "category": "skills-structure",
+      "statement": "JIRA skill directory exists with SKILL.md",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/skills/jira/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-013",
+      "category": "skills-structure",
+      "statement": "Search skill directory exists with SKILL.md",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/skills/search/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-014",
+      "category": "skills-structure",
+      "statement": "Reports skill directory exists with SKILL.md",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/skills/reports/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-015",
+      "category": "skills-structure",
+      "statement": "Onboarding skill directory exists with SKILL.md",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "test -f $TARGET/skills/onboarding/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-016",
+      "category": "task-management",
+      "statement": "Storage script has create_task function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'create_task' $TARGET/skills/tasks/scripts/storage.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-017",
+      "category": "task-management",
+      "statement": "Storage script has list_tasks function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'list_tasks' $TARGET/skills/tasks/scripts/storage.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-018",
+      "category": "task-management",
+      "statement": "Storage script has update_task function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'update_task' $TARGET/skills/tasks/scripts/storage.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-019",
+      "category": "task-management",
+      "statement": "Storage script has complete_task function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'complete_task' $TARGET/skills/tasks/scripts/storage.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-020",
+      "category": "jira-integration",
+      "statement": "JIRA API script has create function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def create' $TARGET/skills/jira/scripts/jira_api.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-021",
+      "category": "jira-integration",
+      "statement": "JIRA API script has update function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def update' $TARGET/skills/jira/scripts/jira_api.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-022",
+      "category": "jira-integration",
+      "statement": "JIRA API script has query function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'def query' $TARGET/skills/jira/scripts/jira_api.py",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-023",
+      "category": "risk-scoring",
+      "statement": "Risk calculation script exists in risk skill",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'calculate_risk' $TARGET/skills/risk/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-024",
+      "category": "data-architecture",
+      "statement": "Task schema includes required fields id and description",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"id\":' $TARGET/skills/tasks/SKILL.md && grep -q '\"description\":' $TARGET/skills/tasks/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-025",
+      "category": "data-architecture",
+      "statement": "Task schema includes assigned_to and created_by fields",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"assigned_to\":' $TARGET/skills/tasks/SKILL.md && grep -q '\"created_by\":' $TARGET/skills/tasks/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-026",
+      "category": "data-architecture",
+      "statement": "Task schema includes status field with valid states",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"status\": \"open|completed|dismissed\"' $TARGET/skills/tasks/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-027",
+      "category": "event-sourcing",
+      "statement": "Storage operations use beacon-prod bucket pattern",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'beacon-prod' $TARGET/skills/tasks/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-028",
+      "category": "event-sourcing",
+      "statement": "Event log pattern uses channel and task ID structure",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'projects/{channel_id}/tasks/{task_id}.json' $TARGET/skills/tasks/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-029",
+      "category": "isolation",
+      "statement": "Beacon agent workspace is separate from Gunnerside",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"workspace\": \"~/.openclaw/agents/beacon/workspace\"' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-030",
+      "category": "isolation",
+      "statement": "Beacon uses separate slack account from Gunnerside",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q '\"accountId\": \"beacon\"' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-031",
+      "category": "identity",
+      "statement": "SOUL.md identifies Beacon as project management agent",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q \"project management agent\" $TARGET/SOUL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-032",
+      "category": "identity",
+      "statement": "SOUL.md defines concise personality trait",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q \"Concise\" $TARGET/SOUL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-033",
+      "category": "intent-surface",
+      "statement": "Task intents documented in TOOLS.md or skills",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'create_task' $TARGET && grep -q 'complete_task' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-034",
+      "category": "intent-surface",
+      "statement": "JIRA intents documented in TOOLS.md or skills",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'jira_create' $TARGET && grep -q 'jira_update' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-035",
+      "category": "auth-setup",
+      "statement": "Anthropic auth profiles copied to Beacon agent",
+      "testable": true,
+      "test_type": "manual",
+      "test_command": "",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-036",
+      "category": "risk-formula",
+      "statement": "Risk scoring includes overdue tasks calculation",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'overdue.*tasks' $TARGET/skills/risk/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-037",
+      "category": "risk-formula",
+      "statement": "Risk scoring includes blocked tasks calculation",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'blocked.*tasks' $TARGET/skills/risk/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-038",
+      "category": "risk-formula",
+      "statement": "Risk thresholds define green yellow red levels",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'Green.*0-20' $TARGET/skills/risk/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-039",
+      "category": "user-resolution",
+      "statement": "JIRA user resolution has three-tier system",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'Tier 1.*Cache' $TARGET/skills/jira/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-040",
+      "category": "user-resolution",
+      "statement": "JIRA user cache pattern defined in skills",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'jira/user-cache/{slack_uid}.json' $TARGET/skills/jira/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-041",
+      "category": "semantic-search",
+      "statement": "Search skill uses Telnyx similarity search API",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'similarity-search' $TARGET/skills/search/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-042",
+      "category": "semantic-search",
+      "statement": "Content stored with channel message timestamp pattern",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'content/{channel_id}/{message_ts}' $TARGET/skills/search/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-043",
+      "category": "reports",
+      "statement": "Status report includes risk score and tasks",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'risk score.*tasks' $TARGET/skills/reports/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-044",
+      "category": "reports",
+      "statement": "My tasks report filters by requesting user",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'assigned to the requesting user' $TARGET/skills/reports/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-045",
+      "category": "project-onboarding",
+      "statement": "Project registry maintains active projects manifest",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'project_registry.json' $TARGET/skills/onboarding/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-046",
+      "category": "project-onboarding",
+      "statement": "Context.json required for every project channel",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'context.json.*MANDATORY' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-047",
+      "category": "idempotency",
+      "statement": "Processed events tracking prevents duplicate processing",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'processed_events' $TARGET && grep -q 'event_id' $TARGET",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-048",
+      "category": "async-operations",
+      "statement": "JIRA operations are async with retry queue",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'ASYNC.*retry' $TARGET/skills/jira/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-049",
+      "category": "async-operations",
+      "statement": "JIRA retry queue pattern defined for failures",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'jira_retry_queue' $TARGET/skills/jira/SKILL.md",
+      "priority": "must-have"
+    },
+    {
+      "id": "ISC-050",
+      "category": "task-numbering",
+      "statement": "Sequential task numbers stored per channel",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'task_number_cache/{channel_id}' $TARGET/skills/tasks/SKILL.md",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-051",
+      "category": "bulk-operations",
+      "statement": "Storage script supports bulk assign operation",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'bulk_assign' $TARGET/skills/tasks/SKILL.md",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-052",
+      "category": "bulk-operations",
+      "statement": "Storage script supports bulk due date operation",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'bulk_due' $TARGET/skills/tasks/SKILL.md",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-053",
+      "category": "jira-epic-support",
+      "statement": "JIRA script has create_epic function",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'create_epic' $TARGET/skills/jira/SKILL.md",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-054",
+      "category": "jira-templates",
+      "statement": "Epic templates stored in templates directory",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'templates/jira' $TARGET/skills/jira/SKILL.md",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-055",
+      "category": "scheduled-reports",
+      "statement": "Weekly risk trend report configured per channel",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'weekly_risk' $TARGET/skills/reports/SKILL.md",
+      "priority": "nice-to-have"
+    },
+    {
+      "id": "ISC-056",
+      "category": "project-templates",
+      "statement": "Project methodology templates available during onboarding",
+      "testable": true,
+      "test_type": "grep",
+      "test_command": "grep -q 'templates.*methodology' $TARGET/skills/onboarding/SKILL.md",
+      "priority": "nice-to-have"
+    }
+  ]
+}
